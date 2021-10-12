@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const UseStateExample = () => {
   const [showMessage, setShowMessage] = useState(false);
@@ -25,7 +25,7 @@ const UseStateExample = () => {
             <label htmlFor="name">What should we call you?</label>
             <input id="name" value={formValues['name']} onChange={handleChange} />
 
-            <label htmlFor="age">How old are you?</label>\
+            <label htmlFor="age">How old are you?</label>
             <input id="age" value={formValues['age']} onChange={handleChange} />
 
             <label htmlFor='fruit'>What's your favorite fruit?</label>

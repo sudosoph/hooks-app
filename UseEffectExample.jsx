@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const UseEffectExample = () => {
-  const apiBaseUrl = "https://dog.ceo/api/breeds/image/random";
+  const apiBaseUrl = "https://dog.ceo/api/breeds/image/random/";
   const [dogImageUrls, setDogImageUrls] = useState([]);
   const [loadPictures, setLoadPictures] = useState(false);
 
   const loadDogPictures = () => {
     const numToLoad = Math.random() * 10;
     fetch(`${apiBaseUrl}${numToLoad}`)
-      .then((response) => response.json())
-      .then((data) => setDogImageUrls(data.message));
-  };
+      .then(response => response.json())
+      .then(data => setDogImageUrls(data.message));
+  }
 
   useEffect(() => {
     loadDogPictures();
+    console.log('mounting')
   }, []);
 
   useEffect(() => {
