@@ -1,32 +1,24 @@
-// updating state
-this.setState({
-    someProperty: 'some value'
-});
+import React from "react";
 
-// using state
-<p>The value is {this.state.someProperty}</p>;
+const UseStateExample = () => {
+  const [showMessage, setShowMessage] = useState(false);
+  const [formValues, setFormValues] = useState({
+    name: "",
+    age: "",
+    fruit: "",
+  });
+  const handleChange = (evt) => {
+    const updateFormValues = {
+      ...formValues,
+      [evt.target.id]: evt.target.value,
+    };
+    setFormValues(updateFormValues);
+  };
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    setShowMessage(true);
+  };
+  return <></>;
+};
 
-// initial declaration
-const [nameOfValue, setNameOfValue] = useState('initial value here');
-
-// updating state
-setNameOfValue('a new value');
-
-// using state
-<p>The value in state is {nameOfValue}</p>;
-
-// multiple values
-const [itemCount, setItemCount] = useState(0);
-const [data, setData] = useState([]);
-const [balance, setBalance] = useState(null);
-
-// grouped values
-const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    message: ''
-});
-
-const [name, setName] = ''
-const [email, setEmail] = useState('');
-const [message, setMessage] = useState('');
+export default UseStateExample;
